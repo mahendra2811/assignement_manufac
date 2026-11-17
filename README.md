@@ -1,5 +1,8 @@
 # Geriatric Care Assessment Form
 
+> **Public repository:** [assignement_manufac](https://github.com/mahendra2811/assignement_manufac)  
+> **Live application:** [assignementmanufac.vercel.app](https://assignementmanufac.vercel.app)
+
 A one-page assessment form for a fictional home-care visit. This exercise simulates saving in the browser; it is not a medical record system.
 
 ## Stack
@@ -32,5 +35,5 @@ Numeric controls do not clamp typed values on blur; the schema rejects out-of-ra
 
 ## Deployment and incomplete work
 
-The production build succeeds locally. A public Git repository and live deployment have not been created: GitHub authentication and hosting credentials were not available in this environment. To deploy with Vercel, authenticate with `npx vercel login`, run `npx vercel` from this directory and follow the prompts, then publish with `npx vercel --prod`. Verify the resulting public URL and add it here. For a public repository, create one on GitHub and push the existing `main` branch; do not add the ignored private study notes.
+The source code is available in the public GitHub repository linked above, and the live application is deployed at the Vercel URL linked above. The production build succeeds locally. The private learning notes are excluded from Git. No other incomplete implementation items are known.
 
