@@ -1,7 +1,7 @@
 # Geriatric Care Assessment Form
 
-> **Public repository:** [assignement_manufac](https://github.com/mahendra2811/assignement_manufac)  
-> **Live application:** [assignementmanufac.vercel.app](https://assignementmanufac.vercel.app)
+> **Public repository:** [https://github.com/mahendra2811/assignement_manufac](https://github.com/mahendra2811/assignement_manufac)  
+> **Live application:** [https://assignementmanufac.vercel.app](https://assignementmanufac.vercel.app)
 
 A one-page assessment form for a fictional home-care visit. This exercise simulates saving in the browser; it is not a medical record system.
 
