@@ -1,44 +1,39 @@
-# Mantine Vite template
+# Geriatric Care Assessment Form
 
-## Features
+A one-page assessment form for a fictional home-care visit. This exercise simulates saving in the browser; it is not a medical record system.
 
-This template comes with the following features:
+## Stack
 
-- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
-- [Vitest](https://vitest.dev/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- [Vite+](https://viteplus.dev/) unified toolchain: Vite, Vitest, Oxlint and Oxfmt are run with `vp` and configured in `vite.config.mjs`
+React 19, TypeScript, Vite, Mantine (`@mantine/core`, `@mantine/form`, `@mantine/dates`), Zod 4, Vitest and React Testing Library.
 
-## Vite+ CLI
+## Getting started
 
-The template works without any global installation: `vp` is installed as a dev dependency and all npm scripts use it.
+The template pins Yarn 4 via Corepack. Enable Corepack if needed, then run:
 
-Optionally, you can install the [global `vp` CLI](https://viteplus.dev/guide/global-cli).
-It automatically switches to the Node.js version pinned in `.node-version` and lets you run commands directly, for example `vp dev` or `vp check --fix` instead of `yarn vp check --fix`.
+```bash
+yarn install
+yarn dev
+```
 
-## npm scripts
+Run the two focused tests and the template's complete quality checks:
 
-## Build and dev scripts
+```bash
+yarn vitest
+yarn test
+```
 
-- `dev` – start development server
-- `build` – build production version of the app
-- `build:analyze` – build the app and open bundle size visualization (`dist/stats.html`)
-- `preview` – locally preview production build
+## Features and approach
 
-### Testing scripts
+The form includes ten assessment fields, schema-based validation on blur and submission, a fictional sample patient, and a simulated save with loading feedback. A successful save displays the Zod-parsed values.
 
-- `check` – checks formatting, lint rules and TypeScript types with `vp check`
-- `check:fix` – same as `check`, fixes formatting and auto-fixable lint errors
-- `typecheck` – checks TypeScript types
-- `lint` – runs oxlint and stylelint
-- `format:test` – checks files with oxfmt
-- `vitest` – runs vitest tests
-- `vitest:watch` – starts vitest watch
-- `test` – runs `check`, `stylelint`, `vitest` and `build` scripts
+Mantine `useForm` manages editable input state and `schemaResolver` maps the supplied Zod issues to fields. Empty dates and numbers and unchecked consent are valid editing states even though they are not valid assessments. The submit handler parses again because Mantine's validation does not replace raw form values with Zod's transformed output.
 
-### Other scripts
+Numeric controls do not clamp typed values on blur; the schema rejects out-of-range or non-integer scores. The assessment date picker limits selection to today, as requested. The original schema does not itself enforce this UI limit.
 
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-- `format:write` – formats all files with oxfmt
+## Deployment and incomplete work
+
+The production build succeeds locally. A public Git repository and live deployment have not been created: GitHub authentication and hosting credentials were not available in this environment. To deploy with Vercel, authenticate with `npx vercel login`, run `npx vercel` from this directory and follow the prompts, then publish with `npx vercel --prod`. Verify the resulting public URL and add it here. For a public repository, create one on GitHub and push the existing `main` branch; do not add the ignored private study notes.
+
+## Time spent
+
+Approximately 8 minutes of assisted implementation and verification, starting when the PDF was located; excludes any subsequent user review and deployment. This is an approximate elapsed time, not a claim of unaided work.
