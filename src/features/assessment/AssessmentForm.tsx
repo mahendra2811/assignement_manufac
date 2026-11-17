@@ -43,7 +43,9 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
   });
 
   const handleSubmit = async (values: AssessmentInput) => {
-    if (savingRef.current) return;
+    if (savingRef.current) {
+      return;
+    }
     const parsed = assessmentSchema.parse(values);
     savingRef.current = true;
     setSaving(true);
@@ -64,7 +66,7 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
         <Title order={1} mb="lg">
           Geriatric Care Assessment
         </Title>
-        <form onSubmit={form.onSubmit(handleSubmit)} noValidate>
+        <form onSubmit={form.onSubmit(handleSubmit, () => setSavedAssessment(null))} noValidate>
           <Stack>
             <TextInput
               label="Medical record number"
