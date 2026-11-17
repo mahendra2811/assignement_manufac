@@ -34,6 +34,3 @@ Numeric controls do not clamp typed values on blur; the schema rejects out-of-ra
 
 The production build succeeds locally. A public Git repository and live deployment have not been created: GitHub authentication and hosting credentials were not available in this environment. To deploy with Vercel, authenticate with `npx vercel login`, run `npx vercel` from this directory and follow the prompts, then publish with `npx vercel --prod`. Verify the resulting public URL and add it here. For a public repository, create one on GitHub and push the existing `main` branch; do not add the ignored private study notes.
 
-## Time spent
-
-Approximately 8 minutes of assisted implementation and verification, starting when the PDF was located; excludes any subsequent user review and deployment. This is an approximate elapsed time, not a claim of unaided work.

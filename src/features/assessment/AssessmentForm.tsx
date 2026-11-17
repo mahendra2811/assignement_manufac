@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
-import { useRef, useState } from 'react';
+import dayjs from "dayjs";
+import { useRef, useState } from "react";
 import {
   Alert,
   Button,
@@ -13,11 +13,11 @@ import {
   Stack,
   TextInput,
   Title,
-} from '@mantine/core';
-import { DateInput } from '@mantine/dates';
-import { schemaResolver, useForm } from '@mantine/form';
-import { initialValues, samplePatient, type AssessmentInput } from './fixtures';
-import { assessmentSchema, MOBILITY, type Assessment } from './schema';
+} from "@mantine/core";
+import { DateInput } from "@mantine/dates";
+import { schemaResolver, useForm } from "@mantine/form";
+import { initialValues, samplePatient, type AssessmentInput } from "./fixtures";
+import { assessmentSchema, MOBILITY, type Assessment } from "./schema";
 
 type AssessmentFormProps = {
   onSave?: (assessment: Assessment) => void | Promise<void>;
@@ -26,9 +26,9 @@ type AssessmentFormProps = {
 const mobilityOptions = MOBILITY.map((value) => ({
   value,
   label: value
-    .split('_')
+    .split("_")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' '),
+    .join(" "),
 }));
 
 export function AssessmentForm({ onSave }: AssessmentFormProps) {
@@ -36,7 +36,7 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
   const [savedAssessment, setSavedAssessment] = useState<Assessment | null>(null);
   const savingRef = useRef(false);
   const form = useForm<AssessmentInput>({
-    mode: 'controlled',
+    mode: "controlled",
     initialValues,
     validate: schemaResolver(assessmentSchema, { sync: true }),
     validateInputOnBlur: true,
@@ -71,39 +71,39 @@ export function AssessmentForm({ onSave }: AssessmentFormProps) {
             <TextInput
               label="Medical record number"
               placeholder="MRN-004821"
-              {...form.getInputProps('mrn')}
+              {...form.getInputProps("mrn")}
             />
-            <TextInput label="Patient name" {...form.getInputProps('patientName')} />
-            <DateInput label="Date of birth" {...form.getInputProps('dateOfBirth')} />
+            <TextInput label="Patient name" {...form.getInputProps("patientName")} />
+            <DateInput label="Date of birth" {...form.getInputProps("dateOfBirth")} />
             <DateInput
               label="Assessment date"
-              maxDate={dayjs().format('YYYY-MM-DD')}
-              {...form.getInputProps('assessmentDate')}
+              maxDate={dayjs().format("YYYY-MM-DD")}
+              {...form.getInputProps("assessmentDate")}
             />
-            <Select label="Mobility" data={mobilityOptions} {...form.getInputProps('mobility')} />
+            <Select label="Mobility" data={mobilityOptions} {...form.getInputProps("mobility")} />
             <NumberInput
               label="Barthel Index"
               step={5}
               min={0}
               max={100}
               clampBehavior="none"
-              {...form.getInputProps('barthelIndex')}
+              {...form.getInputProps("barthelIndex")}
             />
             <NumberInput
               label="Regular medications"
               min={0}
               max={30}
               clampBehavior="none"
-              {...form.getInputProps('medicationCount')}
+              {...form.getInputProps("medicationCount")}
             />
             <Checkbox
               label="Pharmacist review requested"
-              {...form.getInputProps('pharmacistReviewRequested', { type: 'checkbox' })}
+              {...form.getInputProps("pharmacistReviewRequested", { type: "checkbox" })}
             />
-            <DateInput label="Next review date" {...form.getInputProps('followUpDate')} />
+            <DateInput label="Next review date" {...form.getInputProps("followUpDate")} />
             <Checkbox
               label="Patient or representative has given consent"
-              {...form.getInputProps('consentObtained', { type: 'checkbox' })}
+              {...form.getInputProps("consentObtained", { type: "checkbox" })}
             />
             <Group>
               <Button
